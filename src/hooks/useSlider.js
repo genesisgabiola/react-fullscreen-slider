@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 const useSlider = (slideImage, slideText, images) => {
   let slideCounter = 0;
 
-  useEffect(() => startSlider());
+  useEffect(() => startSlider())
 
   const startSlider = () => {
     slideImage.current.style.backgroundImage = `linear-gradient(
@@ -14,11 +14,11 @@ const useSlider = (slideImage, slideText, images) => {
       slideText.current.innerHTML = images[0].text;
   }
 
-  const handleSlide = slide => {
+  const handleSlide = (slide) => {
     slideImage.current.style.backgroundImage = `linear-gradient(
-    to right,
-    rgba(34, 34, 34, 0.4),
-    rgba(68, 68, 68, 0.4)
+      to right,
+      rgba(34, 34, 34, 0.4),
+      rgba(68, 68, 68, 0.4)
     ), url(${images[slide - 1].src})`;
     slideText.current.innerHTML = images[slide - 1].text;
     animateSlide(slideImage)
@@ -49,10 +49,10 @@ const useSlider = (slideImage, slideText, images) => {
     }
 
     slideImage.current.style.backgroundImage = `linear-gradient(
-        to right,
-        rgba(34, 34, 34, 0.4),
-        rgba(68, 68, 68, 0.4)
-        ),url(${images[slideCounter + 1].src})`;
+      to right,
+      rgba(34, 34, 34, 0.4),
+      rgba(68, 68, 68, 0.4)
+    ),url(${images[slideCounter + 1].src})`;
     slideText.current.innerHTML = images[slideCounter + 1].text;
     slideCounter++;
     animateSlide(slideImage)
@@ -61,5 +61,4 @@ const useSlider = (slideImage, slideText, images) => {
   return { goToPreviousSlide, goToNextSlide }
 }
 
-export default useSlider;
-
+export default useSlider
